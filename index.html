@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Lego Star Wars Clicker</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+</head>
+
+<body class="bg-dark">
+
+    <header class="container-fluid bg-dark text-light">
+        <div class="row">
+            <div class="col">
+                <!-- <h1>Studs = <span id="stud-counter"></span></h1> -->
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <!-- NOTE Stud image and calculations-->
+        <div class="row stats">
+            <div class="col d-flex justify-content-center">
+                <h1>Studs = <span id="stud-counter">0</span></h1>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h1>Studs Per Second = <span id="studs-second">0</span> </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h1>Studs Per Click = <span id="studs-click">1</span> </h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <img id="stud-image" class="stud-image" src="https://c.tenor.com/QNZcBAHCkyAAAAAi/lego-lego-stud.gif"
+                    alt="">
+            </div>
+        </div>
+    </main>
+    <!-- NOTE upgrades inside of canvas -->
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="upgrades" aria-labelledby="upgradeLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="upgradeLabel">UPGRADES</h5>
+            <button type="button" class="btn-close text-reset offCanvas-btn" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <img class="upgrade-image"
+                            src="https://i.pinimg.com/564x/5b/42/87/5b42873021e486de3b2ab9cdbd761b95.jpg" alt="">
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" onclick="buyJawa()">Hire Jawa (+1 Stud/sec)= <span
+                                id="hireJawa-cost">10</span></button>
+                        <p>Jawa Army = <span id="jawa-number"></span></p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-6">
+                        <img class="upgrade-image"
+                            src="https://i.kym-cdn.com/photos/images/facebook/001/700/566/1e3.jpg" alt="">
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" onclick="buyProtocolDroid()">Hire Protocol Droid (+1 Stud/click)=
+                            <span id="hire-droid-cost">10</span></button>
+                        <p>Protocol Droids = <span id="droid-number"></span></p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-6">
+                        <img class="upgrade-image" src="https://i.redd.it/a14nr1aghvk61.jpg" alt="">
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" onclick="buyClone()">Hire Clone (+50 Studs/sec)= <span
+                                id="hire-clone-cost">100</span></button>
+                        <p>Clone Army = <span id="clone-number"></span></p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-6">
+                        <img class="upgrade-image"
+                            src="https://i.kym-cdn.com/photos/images/original/001/701/632/e9f.jpg" alt="">
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" onclick="buyObiWanKenobi()">Hire Obi-Wan Kenobi (+100 Studs/click)=
+                            <span id="hire-obiwan-cost">200</span></button>
+                        <p>Obi-Wan Kenobi = <span id="obiwan-number"></span></p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-6">
+                        <img class="upgrade-image"
+                            src="https://cdn.ebaumsworld.com/2020/01/13/021054/86172703/lego-star-wars-profile-4.jpg"
+                            alt="">
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" onclick="buyAnakinSkywalker()">Hire Anakin Skywalker (+1000
+                            Studs/click)= <span id="hire-anakin-cost">10,000</span></button>
+                        <p>Anakin Skywalker = <span id="anakin-number"></span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="container-fluid">
+        <button class="btn2 btn-info fab" type="button" data-bs-toggle="offcanvas" data-bs-target="#upgrades"
+            aria-controls="upgrades"><i class="mdi mdi-cart fs-5"></i></button>
+    </footer>
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

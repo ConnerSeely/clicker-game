@@ -1,0 +1,54 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https:wallpaper.dog/large/959560.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    height: 85vh;
+}
+
+.stats {
+    color: yellow;
+}
+
+.stud-image:active {
+    transform: scale(1.25);
+}
+
+.stud-image {
+    margin-top: 35px;
+}
+
+.offcanvas-header {
+    background-color: black;
+    color: yellow;
+}
+
+.offcanvas-body {
+    background-color: yellow;
+    color: black;
+}
+
+.btn {
+    background-color: lightseagreen;
+}
+
+.btn2 {
+    background-color: yellow;
+}
+
+.offCanvas-btn {
+    background-color: antiquewhite;
+}
+
+.upgrade-image {
+    height: 5em;
+}
+
+.offcanvas {
+    height: 75vh !important;
+}
